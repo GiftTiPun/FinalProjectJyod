@@ -43,7 +43,7 @@ public class TeleportPlayer : NetworkBehaviour
     private void Update()
     {
         
-        if (Currentposition == "Tag")
+        if (Currentposition == "Tag" && IsLocalPlayer)
         {
             //GetComponent<CapsuleCollider2D>().enabled = false;
             if (Input.GetKeyDown(KeyCode.Space))
