@@ -146,5 +146,6 @@ public class LoginManager : MonoBehaviour
         NetworkLog.LogInfoServer("SpawnPos of " + clientId + " is " + spawnPos.ToString());
         bool createPlayerObject = true;
         callback(createPlayerObject, null, approveConnection, spawnPos, null);
+
     }
 }
