@@ -2038,7 +2038,7 @@ RectTransform:
   m_Children:
   - {fileID: 110666428}
   m_Father: {fileID: 2017733955}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -93153,10 +93153,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1051806845}
   - {fileID: 80746352}
   - {fileID: 660455351}
   - {fileID: 7325275398530381448}
-  - {fileID: 1051806845}
   - {fileID: 505067050}
   - {fileID: 587763735}
   m_Father: {fileID: 0}
@@ -93618,6 +93618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KarmaPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1074250507415882481, guid: f6a5a840250d31942bde2163283ee2d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1074250507415882495, guid: f6a5a840250d31942bde2163283ee2d9, type: 3}
       propertyPath: m_Text
       value: KarmaPoint
@@ -93669,7 +93673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2853784823165396362, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2853784823165396362, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -93770,7 +93774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788782577946110578, guid: 9fc79440ce923824bbd7d751ccf041e9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4788782577946110578, guid: 9fc79440ce923824bbd7d751ccf041e9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -93947,7 +93951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8968686378912711660, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8968686378912711660, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
       propertyPath: m_AnchorMax.x
