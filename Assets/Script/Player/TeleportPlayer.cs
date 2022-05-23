@@ -40,6 +40,22 @@ public class TeleportPlayer : NetworkBehaviour
         
     }
 
+    private void Update()
+    {
+
+        if(Currentposition == "Tag")
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GetComponent<CircleCollider2D>().enabled = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                GetComponent<CircleCollider2D>().enabled = false;
+            }
+        }
+    }
     void ShowRoomUI()
     {
         if(Currentposition == "Mainroom")
@@ -62,6 +78,8 @@ public class TeleportPlayer : NetworkBehaviour
             rouletteRoomPanel.SetActive(false);
             BoardRoomPanel.SetActive(false);
             tagRoomPanel.SetActive(true);
+           
+
         }
         else if (Currentposition == "Board")
         {
