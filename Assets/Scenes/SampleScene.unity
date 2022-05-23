@@ -69474,10 +69474,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3697f19d4d8594fbdec7abd1e179a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider1_1: {fileID: 0}
-  collider1_2: {fileID: 0}
-  collider2_1: {fileID: 0}
-  collider2_2: {fileID: 0}
+  collider1_1: {fileID: 484316260}
+  collider1_2: {fileID: 1609174714}
+  collider2_1: {fileID: 627454742}
+  collider2_2: {fileID: 822409125}
   randomnum: 0
 --- !u!1 &1792398295
 GameObject:
