@@ -12,7 +12,7 @@ public class SetupLocalPlayer : MonoBehaviour
     void Start()
     {
         GameObject canvas = GameObject.FindWithTag("MainCanvas");
-        nameLabel = Instantiate(namePrefab, Vector3.zero, Quaternion.identity) as Text;
+        nameLabel = Instantiate(namePrefab, Vector2.zero, Quaternion.identity) as Text;
         nameLabel.transform.SetParent(canvas.transform);
 
     }
@@ -20,7 +20,7 @@ public class SetupLocalPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 nameLablePos = Camera.main.WorldToScreenPoint(namePos.position);
+        Vector2 nameLablePos = Camera.main.WorldToScreenPoint(namePos.position);
         nameLabel.transform.position = nameLablePos;
     }
 }

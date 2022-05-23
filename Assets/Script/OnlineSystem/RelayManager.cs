@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -64,6 +64,7 @@ public class RelayManager : Singleton<RelayManager>
 
         return relayHostData;
     }
+   
 
     public async Task<RelayJoinData> JoinRelay(string joinCode)
     {
@@ -89,6 +90,7 @@ public class RelayManager : Singleton<RelayManager>
             relayJoinData.Key, relayJoinData.ConnectionData, relayJoinData.HostConnectionData);
 
         Debug.Log($"Client Joined Game With Join Code: {joinCode}");
+        JC.text = joinCode;
 
         return relayJoinData;
     }
