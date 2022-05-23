@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
@@ -11,6 +11,7 @@ public class TeleportPlayer : NetworkBehaviour
     public GameObject tagRoomPanel;
     public GameObject BoardRoomPanel;
     public GameObject MainRoomPanel;
+    public Collider2D tagColider;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,19 +41,51 @@ public class TeleportPlayer : NetworkBehaviour
         
     }
 
+    [ClientRpc] //ทำงานพร้อมกัน
+    void TriggerColiderOnClientRpc()
+    {
+          
+         tagColider.enabled = true;
+            
+ 
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void TriggerColiderOnServerRpc()
+    {
+
+        TriggerColiderOnClientRpc();
+    }
+
+    [ClientRpc]
+    void TriggerColiderOffClientRpc()
+    {
+        tagColider.enabled = false;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void TriggerColiderOffServerRpc()
+    {
+
+        TriggerColiderOffClientRpc();
+    }
+
+
     private void Update()
     {
-        
+
         if (Currentposition == "Tag" && IsLocalPlayer)
         {
             //GetComponent<CapsuleCollider2D>().enabled = false;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GetComponent<CircleCollider2D>().enabled = true;
+                TriggerColiderOnServerRpc();
+                //GetComponent<CircleCollider2D>().enabled = true;
             }
             else if (Input.GetKeyUp(KeyCode.Space))
             {
-                GetComponent<CircleCollider2D>().enabled = false;
+                TriggerColiderOffServerRpc();
+                //GetComponent<CircleCollider2D>().enabled = false;
             }
         }
     }

@@ -23,10 +23,11 @@ public class LoginManager : MonoBehaviour
         if (RelayManager.Instance.IsRelayEnabled && !string.IsNullOrEmpty(joinCode.text))
         {
             await RelayManager.Instance.JoinRelay(joinCode.text);
+            NetworkManager.Singleton.NetworkConfig.ConnectionData =
+            Encoding.ASCII.GetBytes(playerNameInputField.text);
+            NetworkManager.Singleton.StartClient();
         }
-        NetworkManager.Singleton.NetworkConfig.ConnectionData =
-        Encoding.ASCII.GetBytes(playerNameInputField.text);
-        NetworkManager.Singleton.StartClient();
+        
     }
     //public void OnIpAddressChange(string address)
     //{
