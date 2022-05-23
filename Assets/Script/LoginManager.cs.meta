@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9602bb2867da0224aaadd7c807759a20
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerNameInputField: {instanceID: 0}
+  - loginPanel: {fileID: 8968686378912711667, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
+  - leaveButton: {fileID: 2853784823165396363, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
