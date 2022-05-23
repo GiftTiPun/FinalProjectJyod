@@ -7,10 +7,12 @@ using Unity.Services.Core.Environments;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class RelayManager : Singleton<RelayManager>
 {
+    public Text JC;
     [SerializeField]
     private string environment = "production";
 
@@ -34,7 +36,6 @@ public class RelayManager : Singleton<RelayManager>
         }
     }
 
-
     public async Task<RelayHostData> SetupRelay()
     {
         Debug.Log($"Relay Server Starting With Max Connections: {maxNumberOfConnections}");
@@ -53,13 +54,13 @@ public class RelayManager : Singleton<RelayManager>
             ConnectionData = allocation.ConnectionData
         };
 
-
         relayHostData.JoinCode = await Relay.Instance.GetJoinCodeAsync(relayHostData.AllocationID);
 
         Transport.SetRelayServerData(relayHostData.IPv4Address, relayHostData.Port, relayHostData.AllocationIDBytes,
                 relayHostData.Key, relayHostData.ConnectionData);
 
         Debug.Log($"Relay Server Generated Join Code: {relayHostData.JoinCode}");
+        JC.text = relayHostData.JoinCode;
 
         return relayHostData;
     }
@@ -83,6 +84,7 @@ public class RelayManager : Singleton<RelayManager>
             IPv4Address = allocation.RelayServer.IpV4,
             JoinCode = joinCode
         };
+
         Transport.SetRelayServerData(relayJoinData.IPv4Address, relayJoinData.Port, relayJoinData.AllocationIDBytes,
             relayJoinData.Key, relayJoinData.ConnectionData, relayJoinData.HostConnectionData);
 

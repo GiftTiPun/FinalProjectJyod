@@ -188,6 +188,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8968686378912711660, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
   m_PrefabInstance: {fileID: 8968686378831975580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86185814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8968686378912711667, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
+  m_PrefabInstance: {fileID: 8968686378831975580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88600100
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,10 +610,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNameInputField: {fileID: 7839278088204351213, guid: 59b2c2e1c72857344b2248462573a222, type: 3}
-  loginPanel: {fileID: 8968686378912711667, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-  leaveButton: {fileID: 2853784823165396363, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
+  loginPanel: {fileID: 86185814}
+  leaveButton: {fileID: 1372839264}
+  mainCamera: {fileID: 519420028}
   ipAddress: 127.0.0.1
-  joinCode: 
+  joinCode: {fileID: 1110261507}
 --- !u!4 &502435795
 Transform:
   m_ObjectHideFlags: 0
@@ -1193,7 +1199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1051806845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1252,6 +1258,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051806844}
   m_CullTransparentMesh: 1
+--- !u!114 &1110261507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8968686378089342923, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
+  m_PrefabInstance: {fileID: 8968686378831975580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1161798567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,8 +1513,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroy: 0
+  JC: {fileID: 1431525390}
   environment: production
   maxNumberOfConnections: 10
+--- !u!1 &1372839264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2853784823165396363, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
+  m_PrefabInstance: {fileID: 2853784822683343421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1431525390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7839278088204351213, guid: 59b2c2e1c72857344b2248462573a222, type: 3}
+  m_PrefabInstance: {fileID: 7839278089341871429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1464531284
 GameObject:
   m_ObjectHideFlags: 0
@@ -93068,6 +93102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeaveButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2853784823165396363, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33603002a27eef14888ebd3c6c235fb2, type: 3}
 --- !u!1001 &7839278089341871429
@@ -93147,7 +93185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839278088204351202, guid: 59b2c2e1c72857344b2248462573a222, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 497
+      value: 281.9
       objectReference: {fileID: 0}
     - target: {fileID: 7839278088204351202, guid: 59b2c2e1c72857344b2248462573a222, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
