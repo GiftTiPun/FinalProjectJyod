@@ -8,4 +8,9 @@ public class TeleportPosition : MonoBehaviour
     public float posY;
     public string Roomname;
     public string VivoxChannel;
+
+    //int x = Random.Range(77, 100);
+    //int y = Random.Range(-28, -50);
+
 }
+

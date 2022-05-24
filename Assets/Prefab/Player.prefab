@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1248053954666676689}
   - component: {fileID: 261931965905702762}
   - component: {fileID: 2527974752696539251}
+  - component: {fileID: 4911096145791445406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -184,11 +185,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Currentposition: 
+  VivoxRoom: Mainroom
   rouletteRoomPanel: {fileID: 0}
   tagRoomPanel: {fileID: 0}
   BoardRoomPanel: {fileID: 0}
   MainRoomPanel: {fileID: 0}
   tagColider: {fileID: 3830260579026350984}
+  vivoxlogin: {fileID: 0}
 --- !u!70 &2069903979
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,6 +223,7 @@ MonoBehaviour:
   namePrefab: {fileID: 7839278088204351213, guid: 59b2c2e1c72857344b2248462573a222, type: 3}
   nameLabel: {fileID: 0}
   namePos: {fileID: 5684011837316323390}
+  PlayernameJson: {fileID: 0}
 --- !u!111 &261931965905702762
 Animation:
   m_ObjectHideFlags: 0
@@ -254,6 +258,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4911096145791445406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504087483200454768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f392e9a843053e4c9ed3f193f861283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  karmaPoint: 0
+  karmaPointText: {fileID: 1074250507415882495, guid: f6a5a840250d31942bde2163283ee2d9, type: 3}
 --- !u!1 &5242385267284759681
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1074250507415882495, guid: f6a5a840250d31942bde2163283ee2d9, type: 3}
+  vivoxlogin: {fileID: 0}
 --- !u!114 &2008691113942806363
 MonoBehaviour:
   m_ObjectHideFlags: 0

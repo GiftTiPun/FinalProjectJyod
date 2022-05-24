@@ -27,9 +27,19 @@ public class TeleportPlayer : NetworkBehaviour
             float teleport_Pos_Y = collision.GetComponent<TeleportPosition>().posY;
             string pos = collision.GetComponent<TeleportPosition>().Roomname;
             string vivoxname = collision.GetComponent<TeleportPosition>().VivoxChannel;
-            TeleportOnServerRpc(teleport_Pos_X, teleport_Pos_Y,pos,vivoxname);
-            
+           
+            if (pos == "Tag")
+            {
+                teleport_Pos_X = Random.Range(74, 96);
+                teleport_Pos_Y = Random.Range(-27, -12);
+                TeleportOnServerRpc(teleport_Pos_X, teleport_Pos_Y, pos, vivoxname);
+            }
+            else
+            {
+                TeleportOnServerRpc(teleport_Pos_X, teleport_Pos_Y, pos, vivoxname);
+            }
         }
+        
     }
     [ClientRpc]
     public void TeleportOnClientRpc(float posX, float posY, string roomname, string Vivoxchannelname)

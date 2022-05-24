@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SkinUi : NetworkBehaviour
 {
     public GameObject shopskin;
+    public PlayerKarmaPoint point;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +15,8 @@ public class SkinUi : NetworkBehaviour
         if(collision.gameObject.tag == "Player" && collision.GetComponent<NetworkObject>().IsLocalPlayer)
         {
           
-                shopskin.SetActive(true);                     
+            shopskin.SetActive(true);
+            
         }
         else
         {
@@ -26,7 +28,8 @@ public class SkinUi : NetworkBehaviour
         if (collision.gameObject.tag == "Player" && collision.GetComponent<NetworkObject>().IsLocalPlayer)
         {
             
-                shopskin.SetActive(false); 
+            shopskin.SetActive(false);
+            
         }
         else
         {
