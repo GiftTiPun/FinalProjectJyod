@@ -29,7 +29,7 @@ public class TeleportPlayer : NetworkBehaviour
             
         }
     }
-    void Teleport(float posX, float posY, string roomname)
+    public void Teleport(float posX, float posY, string roomname)
     {
         transform.position = new Vector2(posX, posY);
         Currentposition = roomname;
