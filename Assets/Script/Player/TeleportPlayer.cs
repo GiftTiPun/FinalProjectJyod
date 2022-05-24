@@ -25,15 +25,16 @@ public class TeleportPlayer : NetworkBehaviour
             float teleport_Pos_X = collision.GetComponent<TeleportPosition>().posX;
             float teleport_Pos_Y = collision.GetComponent<TeleportPosition>().posY;
             string pos = collision.GetComponent<TeleportPosition>().Roomname;
-            Teleport(teleport_Pos_X, teleport_Pos_Y,pos);
+            string vivoxname = pos;
+            Teleport(teleport_Pos_X, teleport_Pos_Y,pos,vivoxname);
             
         }
     }
-    public void Teleport(float posX, float posY, string roomname)
+    public void Teleport(float posX, float posY, string roomname, string Vivoxchannelname)
     {
         transform.position = new Vector2(posX, posY);
         Currentposition = roomname;
-        vivoxlogin.getPlayerCurrentPosition(roomname);
+        vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
         ShowRoomUI();
 
         //if (NetworkManager.Singleton.IsServer)

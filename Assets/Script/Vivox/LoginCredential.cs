@@ -116,6 +116,8 @@ public class LoginCredential : MonoBehaviour
     {
         loginSession.Logout();
         Bind_Login_Callback_Listeners(false, loginSession);
+        JoinButton.SetActive(false);
+        LeaveButton.SetActive(false);
     }
 
     public void Login_Status(object sender, PropertyChangedEventArgs loginArgs)
