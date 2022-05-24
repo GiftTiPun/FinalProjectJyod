@@ -22,7 +22,7 @@ public class TagScript : NetworkBehaviour
         if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
         {
             
-            collision.GetComponent<TeleportPlayer>().Teleport(46.5f, -25.8f, "waitTag", collision.GetComponent<TeleportPlayer>().Currentposition);
+            collision.GetComponent<TeleportPlayer>().Teleport(46.5f, -25.8f, "waitTag", "Tag");
             //collision.transform.position = new Vector2(46.5f, -25.8f);
             //score = score+5;
             Debug.Log("LocalPlayer =" + IsLocalPlayer);
