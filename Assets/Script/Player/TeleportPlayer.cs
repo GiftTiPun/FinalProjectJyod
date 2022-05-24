@@ -35,7 +35,7 @@ public class TeleportPlayer : NetworkBehaviour
         transform.position = new Vector2(posX, posY);
         Currentposition = roomname;    
         ShowRoomUI();
-        if(roomname != "Tag")
+        if(roomname != "Tag" && roomname!= "waitTag" && roomname != "waitRoulette" && roomname != "Roulette")
         {
             vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
         }
