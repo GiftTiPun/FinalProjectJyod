@@ -25,7 +25,7 @@ public class TeleportPlayer : NetworkBehaviour
             float teleport_Pos_X = collision.GetComponent<TeleportPosition>().posX;
             float teleport_Pos_Y = collision.GetComponent<TeleportPosition>().posY;
             string pos = collision.GetComponent<TeleportPosition>().Roomname;
-            string vivoxname = pos;
+            string vivoxname = collision.GetComponent<TeleportPosition>().VivoxChannel;
             Teleport(teleport_Pos_X, teleport_Pos_Y,pos,vivoxname);
             
         }
