@@ -13,9 +13,16 @@ public class SetupLocalPlayer : NetworkBehaviour
     public Text nameLabel;
     public Transform namePos;
     private LoginManager loginManager;
+    public JsonWriter PlayernameJson;
 
 
-  
+    //public void SubmitJson()
+    //{
+    //    PlayernameJson.myPlayer.namePlayer = loginManager.playerNameInputField.text;
+    //    PlayernameJson.myPlayerList.player.
+    //    PlayernameJson.outputJson();
+
+    //}
     void Start()
     {
         if(IsLocalPlayer)
@@ -74,7 +81,7 @@ public class SetupLocalPlayer : NetworkBehaviour
         }
     }
 
-
+   
 
 
 }

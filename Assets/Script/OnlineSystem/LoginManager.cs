@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class LoginManager : MonoBehaviour
 {
     public Text playerNameInputField;
-    
     public GameObject loginPanel;
     public GameObject leaveButton;
     public GameObject mainCamera;
@@ -60,6 +59,7 @@ public class LoginManager : MonoBehaviour
             loginPanel.SetActive(false);
             //mainCamera.SetActive(false);
             leaveButton.SetActive(true);
+            
             
             
         }

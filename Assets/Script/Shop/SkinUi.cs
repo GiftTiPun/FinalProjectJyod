@@ -7,34 +7,32 @@ using UnityEngine.UI;
 public class SkinUi : NetworkBehaviour
 {
     public GameObject shopskin;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if(collision.tag == "Player")
+        if(collision.gameObject.tag == "Player" && collision.GetComponent<NetworkObject>().IsLocalPlayer)
         {
-            if(!IsLocalPlayer)
-            {
-                shopskin.SetActive(true);
-            }
-            else
-            {
-
-            }
-            
+          
+                shopskin.SetActive(true);                     
+        }
+        else
+        {
+            Debug.Log("POG");
         }
     }
    public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.tag == "Player" && collision.GetComponent<NetworkObject>().IsLocalPlayer)
         {
-            if (!IsLocalPlayer)
-            {
-                shopskin.SetActive(false);
-            }
-            else
-            {
-
-            }
+            
+                shopskin.SetActive(false); 
+        }
+        else
+        {
+            Debug.Log("LUCA");
         }
     }
+
+   
 }
