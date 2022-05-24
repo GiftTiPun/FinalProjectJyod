@@ -19,8 +19,7 @@ public class LoginCredential : MonoBehaviour
     private ILoginSession loginSession;
     private IChannelSession channelSession;
 
-
-
+    
     #region UI Variables
     [SerializeField] string Username;
     //[SerializeField] Text txt_Channel_Name;
@@ -35,12 +34,12 @@ public class LoginCredential : MonoBehaviour
     //[SerializeField] Image container;
     #endregion 
 
-    //public void getPlayerCurrentPosition(string roomname)
-    //{
-    //    Debug.Log("ChangePosition");
-    //    ChannelName = roomname;
-    //    Btn_Leave_Channel_Click();
-    //}
+    public void getPlayerCurrentPosition(string roomname)
+    {
+        Debug.Log("ChangePosition");
+        ChannelName = roomname;
+        Btn_Leave_Channel_Click();
+    }
 
     private void Awake()
     {
@@ -157,14 +156,16 @@ public class LoginCredential : MonoBehaviour
                 Bind_Channel_Callback_Listeners(false, channelSession);
                 Debug.Log(e.Message);
             }
+            
         });
+        
         JoinButton.SetActive(false);
         LeaveButton.SetActive(true);
     }
 
     public void Btn_Join_Channel_Click()
     {
-        JoinChannel("main", true, true, true, ChannelType.Positional);
+        JoinChannel(ChannelName, true, true, true, ChannelType.NonPositional);
     }
     public void Leave_Channel(IChannelSession channelToDisconnect, string channelName)
     {
@@ -176,7 +177,7 @@ public class LoginCredential : MonoBehaviour
 
     public void Btn_Leave_Channel_Click()
     {
-        Leave_Channel(channelSession, "main");
+        Leave_Channel(channelSession, ChannelName);
     }
 
     public void On_Channel_Status_Change(object sender, PropertyChangedEventArgs channelArgs)
