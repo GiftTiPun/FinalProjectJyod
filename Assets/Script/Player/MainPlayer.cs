@@ -15,16 +15,16 @@ public class MainPlayer : NetworkBehaviour
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        if(IsLocalPlayer)
-        {
-            //GetComponent<Camera>().enabled = true;
-            GetComponentInChildren<Camera>().enabled = true;
-        }
-        else
-        {
-            //GetComponent<Camera>().enabled = false;
-            GetComponentInChildren<Camera>().enabled = false;
-        }
+        //if(IsLocalPlayer)
+        //{
+        //    //GetComponent<Camera>().enabled = true;
+        //    GetComponentInChildren<Camera>().enabled = true;
+        //}
+        //else
+        //{
+        //    //GetComponent<Camera>().enabled = false;
+        //    GetComponentInChildren<Camera>().enabled = false;
+        //}
     }
 
     private void FixedUpdate()

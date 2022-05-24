@@ -58,7 +58,7 @@ public class LoginManager : MonoBehaviour
         if (isUserLogin)
         {
             loginPanel.SetActive(false);
-            mainCamera.SetActive(false);
+            //mainCamera.SetActive(false);
             leaveButton.SetActive(true);
             
             
@@ -66,7 +66,7 @@ public class LoginManager : MonoBehaviour
         else
         {
             loginPanel.SetActive(true);
-            mainCamera.SetActive(true);
+            //mainCamera.SetActive(true);
             leaveButton.SetActive(false);
            
 

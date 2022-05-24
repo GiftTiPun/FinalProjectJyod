@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9602bb2867da0224aaadd7c807759a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNameInputField: {fileID: 7839278088204351213, guid: 59b2c2e1c72857344b2248462573a222, type: 3}
+  playerNameInputField: {fileID: 988090013}
   loginPanel: {fileID: 86185814}
   leaveButton: {fileID: 1372839264}
   mainCamera: {fileID: 519420028}
@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -734,6 +735,23 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 0
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ebb55d0a76dd5499547e0476179bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 6
+  height: 1.5
+  lookOffset: {x: 0, y: 1, z: 0}
+  cameraSpeed: 20
+  rotSpeed: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2007,6 +2025,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &988090013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8968686379050668935, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
+  m_PrefabInstance: {fileID: 8968686378831975580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1051806844
 GameObject:
   m_ObjectHideFlags: 0
@@ -93886,61 +93915,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2017733955}
     m_Modifications:
     - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 502435794}
-    - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Client
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LoginManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378287900365, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 502435794}
     - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Host
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LoginManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378749362901, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 502435794}
     - target: {fileID: 8968686378912711660, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -94028,10 +94009,6 @@ PrefabInstance:
     - target: {fileID: 8968686378912711667, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
       propertyPath: m_Name
       value: LoginPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968686378912711667, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbdc430bc323f2546aee7574406c4660, type: 3}
