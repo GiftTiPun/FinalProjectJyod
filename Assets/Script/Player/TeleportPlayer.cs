@@ -33,9 +33,12 @@ public class TeleportPlayer : NetworkBehaviour
     public void Teleport(float posX, float posY, string roomname, string Vivoxchannelname)
     {
         transform.position = new Vector2(posX, posY);
-        Currentposition = roomname;
-        vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
+        Currentposition = roomname;    
         ShowRoomUI();
+        if(roomname != "Tag")
+        {
+            vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
+        }
 
         //if (NetworkManager.Singleton.IsServer)
         //{
