@@ -15,17 +15,19 @@ public class TagScript : NetworkBehaviour
         score = 0;
         scoreText.text = "Karma Point";
         GetComponent<CircleCollider2D>().enabled = false;
+        vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
         {
+            vivoxlogin.getPlayerCurrentPosition("waitTag");
             collision.transform.position = new Vector2(46.5f, -25.8f);
             //score = score+5;
             Debug.Log("LocalPlayer =" + IsLocalPlayer);
             Debug.Log(score);
             collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-            vivoxlogin.getPlayerCurrentPosition("waitTag");
+            
 
         }
     }
