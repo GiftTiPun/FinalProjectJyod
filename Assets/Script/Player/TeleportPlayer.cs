@@ -38,11 +38,11 @@ public class TeleportPlayer : NetworkBehaviour
         Currentposition = roomname;
         VivoxRoom = Vivoxchannelname;
         //ShowRoomUI();
-        if(roomname != "Tag" && roomname!= "waitTag" && roomname != "waitRoulette" && roomname != "Roulette" )
-        {
-            Debug.Log("To Vivox Channel :" + Vivoxchannelname);
-            vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
-        }
+        //if(roomname != "Tag" && roomname!= "waitTag" && roomname != "waitRoulette" && roomname != "Roulette" )
+        //{
+        //    Debug.Log("To Vivox Channel :" + Vivoxchannelname);
+        //    vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
+        //}
     }
 
     [ServerRpc(RequireOwnership = false)]
