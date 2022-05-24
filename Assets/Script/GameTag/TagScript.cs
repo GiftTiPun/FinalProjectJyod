@@ -19,10 +19,11 @@ public class TagScript : NetworkBehaviour
     {
         if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
         {
-            collision.transform.position = new Vector2(0f, 0f);
+            collision.transform.position = new Vector2(46.5f, -25.8f);
             //score = score+5;
             Debug.Log("LocalPlayer =" + IsLocalPlayer);
             Debug.Log(score);
+            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
             
         }
     }
