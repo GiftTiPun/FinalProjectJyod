@@ -8,5 +8,4 @@ public class TeleportPosition : MonoBehaviour
     public float posY;
     public string Roomname;
     public string VivoxChannel;
-
 }

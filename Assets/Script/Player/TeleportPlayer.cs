@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TeleportPlayer : NetworkBehaviour
 {
     public string Currentposition = "Mainroom";
+    public string VivoxRoom = "Mainroom";
     public GameObject rouletteRoomPanel;
     public GameObject tagRoomPanel;
     public GameObject BoardRoomPanel;
@@ -26,31 +27,29 @@ public class TeleportPlayer : NetworkBehaviour
             float teleport_Pos_Y = collision.GetComponent<TeleportPosition>().posY;
             string pos = collision.GetComponent<TeleportPosition>().Roomname;
             string vivoxname = collision.GetComponent<TeleportPosition>().VivoxChannel;
-            Teleport(teleport_Pos_X, teleport_Pos_Y,pos,vivoxname);
+            TeleportOnServerRpc(teleport_Pos_X, teleport_Pos_Y,pos,vivoxname);
             
         }
     }
-    public void Teleport(float posX, float posY, string roomname, string Vivoxchannelname)
+    [ClientRpc]
+    public void TeleportOnClientRpc(float posX, float posY, string roomname, string Vivoxchannelname)
     {
         transform.position = new Vector2(posX, posY);
-        Currentposition = roomname;    
-        ShowRoomUI();
-        if(roomname != "Tag" && roomname!= "waitTag" && roomname != "waitRoulette" && roomname != "Roulette")
+        Currentposition = roomname;
+        VivoxRoom = Vivoxchannelname;
+        //ShowRoomUI();
+        if(roomname != "Tag" && roomname!= "waitTag" && roomname != "waitRoulette" && roomname != "Roulette" )
         {
+            Debug.Log("To Vivox Channel :" + Vivoxchannelname);
             vivoxlogin.getPlayerCurrentPosition(Vivoxchannelname);
         }
-
-        //if (NetworkManager.Singleton.IsServer)
-        //{
-        //    transform.position = new Vector2(posX, posY);
-        //    Currentposition = roomname;
-        //}
-        //else
-        //{
-        //    SubmitTeleportRequestServerRpc();
-        //}
-        
     }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void TeleportOnServerRpc(float posX, float posY, string roomname, string Vivoxchannelname)
+    {
+        TeleportOnClientRpc(posX, posY,  roomname, Vivoxchannelname);
+}
 
     [ClientRpc] //ทำงานพร้อมกัน
     void TriggerColiderOnClientRpc()
