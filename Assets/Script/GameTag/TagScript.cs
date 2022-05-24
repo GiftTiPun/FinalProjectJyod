@@ -9,6 +9,7 @@ public class TagScript : NetworkBehaviour
     TeleportPlayer check;
     int score=0;
     public Text scoreText;
+    public LoginCredential vivoxlogin;
     private void Start()
     {
         score = 0;
@@ -24,7 +25,8 @@ public class TagScript : NetworkBehaviour
             Debug.Log("LocalPlayer =" + IsLocalPlayer);
             Debug.Log(score);
             collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-            
+            vivoxlogin.getPlayerCurrentPosition("waitTag");
+
         }
     }
 

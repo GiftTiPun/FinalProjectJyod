@@ -15,8 +15,9 @@ public class LoginManager : MonoBehaviour
     public GameObject mainCamera;
     public string ipAddress = "127.0.0.1";
     public Text joinCode;
+    public LoginCredential vivoxlogin;
 
-  
+
     public async void Client()
     {
         if (RelayManager.Instance.IsRelayEnabled && !string.IsNullOrEmpty(joinCode.text))
@@ -25,6 +26,7 @@ public class LoginManager : MonoBehaviour
             NetworkManager.Singleton.NetworkConfig.ConnectionData =
             Encoding.ASCII.GetBytes(playerNameInputField.text);
             NetworkManager.Singleton.StartClient();
+            vivoxlogin.getPlayerCurrentPosition("Mainroom");
         }
         
     }
@@ -42,6 +44,7 @@ public class LoginManager : MonoBehaviour
         }
         NetworkManager.Singleton.ConnectionApprovalCallback += ApprovalCheck;
         NetworkManager.Singleton.StartHost();
+        vivoxlogin.getPlayerCurrentPosition("Mainroom");
     }
 
     private void Start()
@@ -57,19 +60,12 @@ public class LoginManager : MonoBehaviour
         if (isUserLogin)
         {
             loginPanel.SetActive(false);
-            //mainCamera.SetActive(false);
-            leaveButton.SetActive(true);
-            
-            
-            
+            leaveButton.SetActive(true);  
         }
         else
         {
             loginPanel.SetActive(true);
-            //mainCamera.SetActive(true);
             leaveButton.SetActive(false);
-           
-
         }
     }
 

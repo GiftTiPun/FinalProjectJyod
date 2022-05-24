@@ -12,7 +12,12 @@ public class TeleportPlayer : NetworkBehaviour
     public GameObject BoardRoomPanel;
     public GameObject MainRoomPanel;
     public Collider2D tagColider;
+    public LoginCredential vivoxlogin;
 
+    private void Start()
+    {
+        vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Teleport")
@@ -21,12 +26,14 @@ public class TeleportPlayer : NetworkBehaviour
             float teleport_Pos_Y = collision.GetComponent<TeleportPosition>().posY;
             string pos = collision.GetComponent<TeleportPosition>().Roomname;
             Teleport(teleport_Pos_X, teleport_Pos_Y,pos);
+            
         }
     }
     void Teleport(float posX, float posY, string roomname)
     {
         transform.position = new Vector2(posX, posY);
         Currentposition = roomname;
+        vivoxlogin.getPlayerCurrentPosition(roomname);
         ShowRoomUI();
 
         //if (NetworkManager.Singleton.IsServer)
@@ -43,17 +50,13 @@ public class TeleportPlayer : NetworkBehaviour
 
     [ClientRpc] //ทำงานพร้อมกัน
     void TriggerColiderOnClientRpc()
-    {
-          
+    {        
          tagColider.enabled = true;
-            
- 
     }
 
     [ServerRpc(RequireOwnership = false)]
     void TriggerColiderOnServerRpc()
     {
-
         TriggerColiderOnClientRpc();
     }
 
