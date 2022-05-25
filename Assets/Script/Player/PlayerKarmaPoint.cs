@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 
-public class PlayerKarmaPoint : MonoBehaviour
+public class PlayerKarmaPoint : NetworkBehaviour
 {
     public int karmaPoint;
     [SerializeField] Text karmaPointText;
-    [SerializeField] Animator player_animator;
+    [SerializeField] Animator p_animator;
+    
     
     
 
@@ -16,7 +17,8 @@ public class PlayerKarmaPoint : MonoBehaviour
     {
         karmaPoint = 1000;
         karmaPointText = GameObject.Find("karmapointText").GetComponent<Text>();
-        //player_animator = this.gameObject.GetComponent<Animator>();
+        p_animator = gameObject.GetComponent<Animator>();
+       
        
     }
 
@@ -51,13 +53,20 @@ public class PlayerKarmaPoint : MonoBehaviour
     public void Changeskin2()
     {
         //this.LoseKarmaPoint(250);
-        //player_animator.SetBool("Skin2", true);
-        //player_animator.SetBool("Skin3", false);
-        //player_animator.SetBool("Skin4", false);
-        //Debug.Log("wtf");
-        this.GetComponent<Animator>().SetBool("Skin2", true);
-        this.GetComponent<Animator>().SetBool("Skin3", false);
-        this.GetComponent<Animator>().SetBool("Skin4", false);
+        if(!IsLocalPlayer)
+        {
+            p_animator.SetBool("Skin1", false);
+            p_animator.SetBool("Skin2", true);
+            p_animator.SetBool("Skin3", false);
+            p_animator.SetBool("Skin4", false);
+            Debug.Log("wtf");
+        }
+       
+
+
+        //this.GetComponent<Animator>().SetBool("Skin2", true);
+        //this.GetComponent<Animator>().SetBool("Skin3", false);
+        //this.GetComponent<Animator>().SetBool("Skin4", false);
 
         //GetComponent<Animator>().runtimeAnimatorController = skin2 as RuntimeAnimatorController;
         //Debug.Log("YOOO");
