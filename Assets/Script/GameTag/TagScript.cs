@@ -10,6 +10,7 @@ public class TagScript : NetworkBehaviour
     int score = 0;
     public Text scoreText;
     public LoginCredential vivoxlogin;
+    public LayerMask playerLayer;
     private void Start()
     {
         //score = 0;
@@ -17,30 +18,42 @@ public class TagScript : NetworkBehaviour
         GetComponent<CircleCollider2D>().enabled = false;
         vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void Tag()
     {
-        if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
+        Collider2D[] Hit = Physics2D.OverlapCircleAll(transform.position, 1f,playerLayer);
+        foreach(Collider2D n in Hit )
         {
-
-            collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
-        
-            Debug.Log("LocalPlayer =" + IsLocalPlayer);
-            
-            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-
-            collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
-
-           
-            Debug.Log("isLocalPlayer =" + IsLocalPlayer + " Gain");
+            if(n == GetComponentInParent<Collider2D>())
+            {
+                return;
+            }
+            n.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
+            n.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
+            n.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
             this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
-            
-           
-                
-            
-
         }
-
     }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
+    //    {
+
+    //        collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
+        
+    //        Debug.Log("LocalPlayer =" + IsLocalPlayer);
+            
+    //        collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
+
+    //        if(collision != GetComponentInParent<Collider2D>())
+    //        {
+    //            collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
+    //            this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
+    //        }
+            
+    //    }
+
+    //}
 
     //private void Update()
     //{

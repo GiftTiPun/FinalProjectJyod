@@ -92,16 +92,17 @@ public class TeleportPlayer : NetworkBehaviour
 
         if (Currentposition == "Tag" && IsLocalPlayer)
         {
-            //GetComponent<CapsuleCollider2D>().enabled = false;
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                TriggerColiderOnServerRpc();
-                //GetComponent<CircleCollider2D>().enabled = true;
+                //TriggerColiderOnServerRpc();
+                GetComponentInChildren<TagScript>().Tag();
+               
             }
             else if (Input.GetKeyUp(KeyCode.Space))
             {
-                TriggerColiderOffServerRpc();
-                //GetComponent<CircleCollider2D>().enabled = false;
+                //TriggerColiderOffServerRpc();
+               
             }
         }
     }
