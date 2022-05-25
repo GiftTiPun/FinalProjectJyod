@@ -19,7 +19,7 @@ public class TagScript : NetworkBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
+        if (collision.gameObject.tag == "Player" && !this)
         {
 
             collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
@@ -30,12 +30,10 @@ public class TagScript : NetworkBehaviour
 
             collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
 
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag" && IsLocalPlayer)
-
-            {
-                Debug.Log("isLocalPlayer =" + IsLocalPlayer + " Gain");
-                this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
-            }
+           
+            Debug.Log("isLocalPlayer =" + IsLocalPlayer + " Gain");
+            this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
+            
            
                 
             
