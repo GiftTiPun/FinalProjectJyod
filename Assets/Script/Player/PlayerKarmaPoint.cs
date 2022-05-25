@@ -27,7 +27,7 @@ public class PlayerKarmaPoint : NetworkBehaviour
     {
         karmaPoint += amount;
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void GainKarmaPointServerRpc(int amount)
     {
         GainKarmaPointClientRpc(amount);
@@ -37,7 +37,7 @@ public class PlayerKarmaPoint : NetworkBehaviour
     {
         karmaPoint -= amount;
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void LoseKarmaPointServerRpc(int amount)
     {
         LoseKarmaPointClientRpc(amount);
@@ -48,7 +48,7 @@ public class PlayerKarmaPoint : NetworkBehaviour
     {
         karmaPointText.text = karmaPoint.ToString();
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void CheckPointServerRpc()
     {
         CheckPointClientRpc();
