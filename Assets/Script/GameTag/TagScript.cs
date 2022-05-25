@@ -29,11 +29,9 @@ public class TagScript : NetworkBehaviour
             Debug.Log(score);
             collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
             collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
-           
-            {
+            
                 this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPoint(100);
-            }
+  
           
         }
        
