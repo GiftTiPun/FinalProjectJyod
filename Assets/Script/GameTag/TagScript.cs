@@ -7,40 +7,37 @@ using UnityEngine.UI;
 public class TagScript : NetworkBehaviour
 {
     TeleportPlayer check;
-    int score=0;
+    int score = 0;
     public Text scoreText;
     public LoginCredential vivoxlogin;
     private void Start()
     {
-        score = 0;
-        scoreText.text = "Karma Point";
+        //score = 0;
+        //scoreText.text = "Karma Point";
         GetComponent<CircleCollider2D>().enabled = false;
         vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
+        if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
         {
-            
+
             collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
             //collision.transform.position = new Vector2(46.5f, -25.8f);
             //score = score+5;
             Debug.Log("LocalPlayer =" + IsLocalPlayer);
-            Debug.Log(score);
-            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "waitTag")
-
-            {
-                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
-            }
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
            
+            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
+
+            collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
+            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
+
             {
                 this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPoint(100);
             }
-          
+
         }
-       
+
     }
 
     //private void Update()
