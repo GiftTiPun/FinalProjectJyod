@@ -24,14 +24,14 @@ public class TagScript : NetworkBehaviour
         Collider2D[] Hit = Physics2D.OverlapCircleAll(transform.position, 1f,playerLayer);
         foreach(Collider2D n in Hit )
         {
-            if(n == GetComponentInParent<Collider2D>())
+            if(n.gameObject == GetComponentInParent<MainPlayer>().gameObject)
             {
                 return;
             }
             n.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
             n.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
             n.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
-            this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
+            GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
         }
     }
     //private void OnTriggerEnter2D(Collider2D collision)
