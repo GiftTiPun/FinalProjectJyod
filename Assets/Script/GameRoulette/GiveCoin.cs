@@ -10,7 +10,7 @@ public class GiveCoin : NetworkBehaviour
     {
         if (collision.tag == "Player" && collision.GetComponent<NetworkObject>().IsLocalPlayer)
         {
-            collision.gameObject.GetComponent<PlayerKarmaPoint>().GainKarmaPoint(100);
+            collision.gameObject.GetComponent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
             collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(-54.9f, 20.21f, "waitRoulette", "Roulette");
         }
     }

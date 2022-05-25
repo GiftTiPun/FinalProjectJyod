@@ -22,13 +22,25 @@ public class PlayerKarmaPoint : NetworkBehaviour
        
     }
 
-    public void GainKarmaPoint(int amount)
+    [ClientRpc]
+    public void GainKarmaPointClientRpc(int amount)
     {
         karmaPoint += amount;
     }
-    public void LoseKarmaPoint(int amount)
+    [ServerRpc]
+    public void GainKarmaPointServerRpc(int amount)
+    {
+        GainKarmaPointClientRpc(amount);
+    }
+    [ClientRpc]
+    public void LoseKarmaPointClientRpc(int amount)
     {
         karmaPoint -= amount;
+    }
+    [ServerRpc]
+    public void LoseKarmaPointServerRpc(int amount)
+    {
+        LoseKarmaPointClientRpc(amount);
     }
 
     [ClientRpc]

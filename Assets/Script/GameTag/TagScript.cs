@@ -30,18 +30,17 @@ public class TagScript : NetworkBehaviour
             
             collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
 
-           
-            
+            collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
+
             if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag" && !IsLocalPlayer)
 
             {
                 Debug.Log("isLocalPlayer =" + IsLocalPlayer + " Gain");
-                this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPoint(100);
+                this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
             }
-            else
-            {
-                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
-            }
+           
+                
+            
 
         }
 
