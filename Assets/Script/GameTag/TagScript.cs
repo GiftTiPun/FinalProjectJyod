@@ -18,150 +18,34 @@ public class TagScript : NetworkBehaviour
         GetComponent<CircleCollider2D>().enabled = false;
         vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
     }
-<<<<<<< HEAD
 
-    public void Tag()
-    {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Collider2D[] Hit = Physics2D.OverlapCircleAll(transform.position, 1f,playerLayer);
-        foreach(Collider2D n in Hit )
-        {
-            if(n.gameObject == GetComponentInParent<MainPlayer>().gameObject)
-=======
-=======
     private void OnTriggerEnter2D(Collider2D collision)
     {
-<<<<<<< HEAD
->>>>>>> parent of 61fd023 (FixTag4)
-=======
->>>>>>> parent of 61fd023 (FixTag4)
-        if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
-        {
-            
-            collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
-            //collision.transform.position = new Vector2(46.5f, -25.8f);
-            //score = score+5;
-            Debug.Log("LocalPlayer =" + IsLocalPlayer);
-            Debug.Log(score);
-            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "waitTag")
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-            {
-                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
-            }
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
-           
->>>>>>> parent of 61fd023 (FixTag4)
-            {
-                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
-            }
-<<<<<<< HEAD
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
-           
->>>>>>> parent of 61fd023 (FixTag4)
-            {
-                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
-            }
-<<<<<<< HEAD
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
-           
->>>>>>> parent of 61fd023 (FixTag4)
-            {
-                return;
-            }
-<<<<<<< HEAD
-            n.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
-            n.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-            n.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
-            GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
-=======
         if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
-=======
-        if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
->>>>>>> parent of 61fd023 (FixTag4)
         {
-            
+
             collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
-        
+
             Debug.Log("LocalPlayer =" + IsLocalPlayer);
-<<<<<<< HEAD
-            
-=======
-            Debug.Log(score);
->>>>>>> parent of 61fd023 (FixTag4)
+
             collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "waitTag")
 
-<<<<<<< HEAD
-            collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
-
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag" && IsLocalPlayer)
-
-=======
+            if (collision != GetComponentInParent<Collider2D>())
             {
-                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
+                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
             }
-            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
-           
->>>>>>> parent of 61fd023 (FixTag4)
+
+
+
+            //Debug.Log("isLocalPlayer =" + IsLocalPlayer + " Gain");
+            if (collision == GetComponentInParent<Collider2D>())
             {
-                Debug.Log("isLocalPlayer =" + IsLocalPlayer + " Gain");
                 this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
             }
-<<<<<<< HEAD
-           
-                
-            
 
->>>>>>> parent of 4282162 (FixTag12+Pun)
         }
-=======
-          
-        }
-       
->>>>>>> parent of 61fd023 (FixTag4)
-=======
-          
-        }
-       
->>>>>>> parent of 61fd023 (FixTag4)
-=======
-          
-        }
-       
->>>>>>> parent of 61fd023 (FixTag4)
-=======
-          
-        }
-       
->>>>>>> parent of 61fd023 (FixTag4)
+
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
-    //    {
-
-    //        collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
-        
-    //        Debug.Log("LocalPlayer =" + IsLocalPlayer);
-            
-    //        collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
-
-    //        if(collision != GetComponentInParent<Collider2D>())
-    //        {
-    //            collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
-    //            this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
-    //        }
-            
-    //    }
-
-    //}
 
     //private void Update()
     //{

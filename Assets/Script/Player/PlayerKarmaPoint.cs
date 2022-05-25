@@ -76,33 +76,8 @@ public class PlayerKarmaPoint : NetworkBehaviour
        
 
 
-        //this.GetComponent<Animator>().SetBool("Skin2", true);
-        //this.GetComponent<Animator>().SetBool("Skin3", false);
-        //this.GetComponent<Animator>().SetBool("Skin4", false);
-
-        //GetComponent<Animator>().runtimeAnimatorController = skin2 as RuntimeAnimatorController;
-        //Debug.Log("YOOO");
     }
-    public void Changeskin3()
-    {
-        //this.LoseKarmaPoint(250);
-        //this.GetComponent<Animator>().SetBool("Skin3", true);
-        //this.GetComponent<Animator>().SetBool("Skin2", false);
-        //this.GetComponent<Animator>().SetBool("Skin4", false);
-
-        //GetComponent<Animator>().runtimeAnimatorController = skin2 as RuntimeAnimatorController;
-        //Debug.Log("YOOO");
-    }
-    public void Changeskin4()
-    {
-        //this.LoseKarmaPoint(250);
-        //this.GetComponent<Animator>().SetBool("Skin4", true);
-        //this.GetComponent<Animator>().SetBool("Skin3", false);
-        //this.GetComponent<Animator>().SetBool("Skin2", false);
-
-        //GetComponent<Animator>().runtimeAnimatorController = skin2 as RuntimeAnimatorController;
-        //Debug.Log("YOOO");
-    }
+   
 
 }
 
