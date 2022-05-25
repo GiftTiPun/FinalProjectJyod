@@ -16,7 +16,7 @@ public class SkinUi : NetworkBehaviour
         {
           
             shopskin.SetActive(true);
-            
+            //collision.gameObject.GetComponent<PlayerKarmaPoint>().GainKarmaPoint(100);
         }
         else
         {
@@ -29,13 +29,15 @@ public class SkinUi : NetworkBehaviour
         {
             
             shopskin.SetActive(false);
-            
+            //collision.gameObject.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(25);
         }
         else
         {
             Debug.Log("LUCA");
         }
     }
+
+    
 
    
 }
