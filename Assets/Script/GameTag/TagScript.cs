@@ -7,32 +7,57 @@ using UnityEngine.UI;
 public class TagScript : NetworkBehaviour
 {
     TeleportPlayer check;
-    int score = 0;
+    int score=0;
     public Text scoreText;
     public LoginCredential vivoxlogin;
     public LayerMask playerLayer;
     private void Start()
     {
-        //score = 0;
-        //scoreText.text = "Karma Point";
+        score = 0;
+        scoreText.text = "Karma Point";
         GetComponent<CircleCollider2D>().enabled = false;
         vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
     }
 
     public void Tag()
     {
+<<<<<<< HEAD
         Collider2D[] Hit = Physics2D.OverlapCircleAll(transform.position, 1f,playerLayer);
         foreach(Collider2D n in Hit )
         {
             if(n.gameObject == GetComponentInParent<MainPlayer>().gameObject)
+=======
+        if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
+        {
+            
+            collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
+            //collision.transform.position = new Vector2(46.5f, -25.8f);
+            //score = score+5;
+            Debug.Log("LocalPlayer =" + IsLocalPlayer);
+            Debug.Log(score);
+            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
+            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "waitTag")
+
+            {
+                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
+            }
+            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
+           
+>>>>>>> parent of 61fd023 (FixTag4)
             {
                 return;
             }
+<<<<<<< HEAD
             n.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
             n.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
             n.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
             GetComponentInParent<PlayerKarmaPoint>().GainKarmaPointServerRpc(100);
         }
+=======
+          
+        }
+       
+>>>>>>> parent of 61fd023 (FixTag4)
     }
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
