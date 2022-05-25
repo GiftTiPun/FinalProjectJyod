@@ -18,6 +18,7 @@ public class TagScript : NetworkBehaviour
         GetComponent<CircleCollider2D>().enabled = false;
         vivoxlogin = GameObject.Find("VivoxLoginCredential").GetComponent<LoginCredential>();
     }
+<<<<<<< HEAD
 
     public void Tag()
     {
@@ -29,6 +30,10 @@ public class TagScript : NetworkBehaviour
         {
             if(n.gameObject == GetComponentInParent<MainPlayer>().gameObject)
 =======
+=======
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+>>>>>>> parent of 61fd023 (FixTag4)
         if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
         {
             
@@ -40,9 +45,18 @@ public class TagScript : NetworkBehaviour
             collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
             if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "waitTag")
 
+<<<<<<< HEAD
+=======
             {
                 collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
             }
+            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
+           
+>>>>>>> parent of 61fd023 (FixTag4)
+            {
+                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
+            }
+<<<<<<< HEAD
             if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
            
 >>>>>>> parent of 61fd023 (FixTag4)
@@ -95,6 +109,11 @@ public class TagScript : NetworkBehaviour
 
 >>>>>>> parent of 4282162 (FixTag12+Pun)
         }
+=======
+          
+        }
+       
+>>>>>>> parent of 61fd023 (FixTag4)
 =======
           
         }
