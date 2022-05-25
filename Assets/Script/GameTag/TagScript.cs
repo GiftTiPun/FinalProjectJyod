@@ -33,6 +33,7 @@ public class TagScript : NetworkBehaviour
             if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
 
             {
+                Debug.Log("isLocalPlayer =" + IsLocalPlayer + "Gain");
                 this.gameObject.GetComponentInParent<PlayerKarmaPoint>().GainKarmaPoint(100);
             }
 
