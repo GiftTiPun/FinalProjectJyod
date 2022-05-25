@@ -95,14 +95,14 @@ public class TeleportPlayer : NetworkBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //TriggerColiderOnServerRpc();
-                GetComponentInChildren<TagScript>().Tag();
-               
+                TriggerColiderOnServerRpc();
+                //GetComponentInChildren<TagScript>().Tag();
+
             }
             else if (Input.GetKeyUp(KeyCode.Space))
             {
-                //TriggerColiderOffServerRpc();
-               
+                TriggerColiderOffServerRpc();
+
             }
         }
     }
