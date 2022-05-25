@@ -23,13 +23,33 @@ public class TagScript : NetworkBehaviour
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Collider2D[] Hit = Physics2D.OverlapCircleAll(transform.position, 1f,playerLayer);
         foreach(Collider2D n in Hit )
         {
             if(n.gameObject == GetComponentInParent<MainPlayer>().gameObject)
+=======
+        if (collision.gameObject.tag =="Player" && !IsLocalPlayer )
+        {
+            
+            collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
+            //collision.transform.position = new Vector2(46.5f, -25.8f);
+            //score = score+5;
+            Debug.Log("LocalPlayer =" + IsLocalPlayer);
+            Debug.Log(score);
+            collision.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
+            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "waitTag")
+
+            {
+                collision.GetComponent<PlayerKarmaPoint>().LoseKarmaPoint(50);
+            }
+            if (this.gameObject.GetComponentInParent<TeleportPlayer>().Currentposition == "Tag")
+           
+>>>>>>> parent of 61fd023 (FixTag4)
             {
                 return;
             }
+<<<<<<< HEAD
             n.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
             n.GetComponent<TeleportPlayer>().Currentposition = "waitTag";
             n.GetComponent<PlayerKarmaPoint>().LoseKarmaPointServerRpc(50);
@@ -75,6 +95,11 @@ public class TagScript : NetworkBehaviour
 
 >>>>>>> parent of 4282162 (FixTag12+Pun)
         }
+=======
+          
+        }
+       
+>>>>>>> parent of 61fd023 (FixTag4)
 =======
           
         }
