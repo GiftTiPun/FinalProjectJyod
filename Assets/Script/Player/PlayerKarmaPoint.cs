@@ -8,18 +8,12 @@ public class PlayerKarmaPoint : NetworkBehaviour
 {
     public int karmaPoint;
     [SerializeField] Text karmaPointText;
-    [SerializeField] Animator p_animator;
-    
-    
-    
 
     public void Start()
     {
         karmaPoint = 1000;
         karmaPointText = GameObject.Find("karmapointText").GetComponent<Text>();
-        p_animator = gameObject.GetComponent<Animator>();
-       
-       
+   
     }
 
     [ClientRpc]
@@ -62,21 +56,7 @@ public class PlayerKarmaPoint : NetworkBehaviour
        
     }
 
-    public void Changeskin2()
-    {
-        //this.LoseKarmaPoint(250);
-        if(!IsLocalPlayer)
-        {
-            p_animator.SetBool("Skin1", false);
-            p_animator.SetBool("Skin2", true);
-            p_animator.SetBool("Skin3", false);
-            p_animator.SetBool("Skin4", false);
-            Debug.Log("wtf");
-        }
-       
 
-
-    }
    
 
 }

@@ -16,13 +16,7 @@ public class SetupLocalPlayer : NetworkBehaviour
     public JsonWriter PlayernameJson;
 
 
-    //public void SubmitJson()
-    //{
-    //    PlayernameJson.myPlayer.namePlayer = loginManager.playerNameInputField.text;
-    //    PlayernameJson.myPlayerList.player.
-    //    PlayernameJson.outputJson();
-
-    //}
+   
     void Start()
     {
         if(IsLocalPlayer)
@@ -50,11 +44,7 @@ public class SetupLocalPlayer : NetworkBehaviour
         }
 
     }
-    //[ClientRpc]
-    //public void UpdateClientNameClientRpc()
-    //{
-
-    //}
+  
     [ServerRpc(RequireOwnership = false)]
     public void UpdateClientNameServerRpc(string name)
     {
