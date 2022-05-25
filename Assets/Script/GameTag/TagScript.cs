@@ -19,7 +19,7 @@ public class TagScript : NetworkBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !this)
+        if (collision.gameObject.tag == "Player" && !IsLocalPlayer)
         {
 
             collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(46.5f, -25.8f, "waitTag", "Tag");
