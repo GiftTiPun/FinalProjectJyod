@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RouletteGame : MonoBehaviour
 {
@@ -8,22 +9,24 @@ public class RouletteGame : MonoBehaviour
     public GameObject collider1_2;
     public GameObject collider2_1;
     public GameObject collider2_2;
+    public bool IsStartGame = false;
+    public Text CountDownText;
 
     public float randomnum;
     
     public void StartGame()
     {
-        //check player id
-        //wrap player to start game position
         //count down from 10
-        //random
+        StartCoroutine(Countdown());
+        //random 
         //checkresult
-        //wrap player to position
+        checkresut(randomRouette());
     }
-    public void randomRouette()
+    public float randomRouette()
     {
         randomnum = Random.Range(1f, 2f);
         Debug.Log("Roulette : " + randomnum);
+        return randomnum;
     }
     void checkresut(float result)
     {
@@ -47,5 +50,17 @@ public class RouletteGame : MonoBehaviour
         collider2_2.SetActive(false);
         collider1_2.SetActive(false);
         collider2_1.SetActive(false);
+    }
+
+    private IEnumerator Countdown()
+    {
+        float count = 0f;
+        float totalTime = 10f;
+        while (totalTime >= count)
+        {
+            count += Time.deltaTime;
+            CountDownText.text = count.ToString();
+            yield return null;
+        }
     }
 }

@@ -13,7 +13,7 @@ public class GiveCoin : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerKarmaPoint>().GainKarmaPoint(100f);
-            collision.transform.position = new Vector2(-30.49f, 8.52f);
+            collision.GetComponent<TeleportPlayer>().TeleportOnServerRpc(-54.9f, 20.21f, "waitRoulette", "Roulette");
         }
     }
 }
